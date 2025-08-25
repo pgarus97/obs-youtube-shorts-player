@@ -3,8 +3,6 @@ This is a simple html script that plays and shuffles videos / shorts from a YouT
 
 Did you ever want some reusable video content for your BRB / Starting Soon scenes in your stream? I created a little solution for this, an automatic video player for YouTube playlists. I personally use it to shuffle through all of my shorts, and the viewers love it. It is a win-win situation if you anyways create shorts on YouTube, as you can use them directly on your stream without needing to download any local files etc.
 
-Download it here: https://drive.google.com/file/d/1JCZ-eKRFDfYeAXHl_h_33fNCXEjIsSX6/view?usp=sharing
-
 Instructions:
 
 Open the file in a text editor (If you cannot find how to do this, try literally right click, open with... and choose text editor) and change the playlist id to your playlist. The id is the ending of your playlist URL. For example: https://www.youtube.com/playlist?list=PLgIDB87U34NcKPcsLTxtu1GmLhZ6AfQ1u is my shorts playlist. The id would be: 'PLgIDB87U34NcKPcsLTxtu1GmLhZ6AfQ1u'

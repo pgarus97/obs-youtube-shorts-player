@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Random YouTube Short</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      overflow: hidden;
+      height: 100%;
+      width: 100%;
+    }
+    #player {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="player"></div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    const PLAYLIST_ID = 'CHANGE_THIS_ID'; // IMPORTANT: input your playlist ID here!
+    let player;
+    let playlist = [];
+    let lastIndex = -1;
+
+    function getNewRandomIndex() {
+      let newIndex;
+      do {
+        newIndex = Math.floor(Math.random() * playlist.length);
+      } while (newIndex === lastIndex && playlist.length > 1);
+      lastIndex = newIndex;
+      return newIndex;
+    }
+
+    function onYouTubeIframeAPIReady() {
+      let tempDiv = document.createElement('div');
+      document.body.appendChild(tempDiv);
+      let tempPlayer = new YT.Player(tempDiv, {
+        playerVars: {
+          listType: 'playlist',
+          list: PLAYLIST_ID
+        },
+        events: {
+          onReady: () => {
+            playlist = tempPlayer.getPlaylist();
+            tempPlayer.destroy();
+            tempDiv.remove();
+            createMainPlayer();
+          }
+        }
+      });
+    }
+
+    function createMainPlayer() {
+      player = new YT.Player('player', {
+        width: '100%',
+        height: '100%',
+        playerVars: {
+          autoplay: 1,
+          mute: 1,
+          controls: 0,
+          modestbranding: 1,
+          rel: 0,
+          playsinline: 1,
+          enablejsapi: 1
+        },
+        events: {
+          onReady: () => {
+            playRandomVideo();
+          },
+          onStateChange: (event) => {
+            if (event.data === YT.PlayerState.ENDED) {
+              playRandomVideo();
+            }
+          }
+        }
+      });
+    }
+
+    function playRandomVideo() {
+      if (playlist.length === 0) return;
+      const index = getNewRandomIndex();
+      player.loadVideoById(playlist[index]);
+      player.unMute();
+    }
+  </script>
+</body>
+</html>

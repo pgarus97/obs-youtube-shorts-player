@@ -7,8 +7,6 @@ Download it here: https://drive.google.com/file/d/1JCZ-eKRFDfYeAXHl_h_33fNCXEjIs
 
 Instructions:
 
-Download the "random-short - public.html" file and place it somewhere on your system.
-
 Open the file in a text editor (If you cannot find how to do this, try literally right click, open with... and choose text editor) and change the playlist id to your playlist. The id is the ending of your playlist URL. For example: https://www.youtube.com/playlist?list=PLgIDB87U34NcKPcsLTxtu1GmLhZ6AfQ1u is my shorts playlist. The id would be: 'PLgIDB87U34NcKPcsLTxtu1GmLhZ6AfQ1u'
 
 Add a new browser source to OBS. Click "Local file" and browse for your downloaded and edited "random-short - public.html". Set width and height according to your needs (I use 600x1000) and tick control audio via OBS. That lets you adjust the volume of the clips later easier. Also tick "Shutdown source when not visible" and "Refresh browser when scene becomes active".
